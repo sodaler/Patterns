@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/patterns/property-container', [\App\Http\Controllers\PatternsController::class, 'propertyContainer']);
+Route::get('/patterns/propertyContainer', [\App\Http\Controllers\PatternsController::class, 'propertyContainer'])->name('propertyContainer');
+
+Route::get('/patterns/delegation', [\App\Http\Controllers\PatternsController::class, 'delegation'])->name('delegation');
 
 Auth::routes();
 
