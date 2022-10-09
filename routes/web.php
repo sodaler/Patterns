@@ -21,6 +21,8 @@ Route::get('/patterns/propertyContainer', [\App\Http\Controllers\PatternsControl
 
 Route::get('/patterns/delegation', [\App\Http\Controllers\PatternsController::class, 'delegation'])->name('delegation');
 
+Route::get('/patterns/event-channel', [\App\Http\Controllers\PatternsController::class, 'eventChannel'])->name('eventChannel');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

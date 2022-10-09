@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DesignPatterns\Fundamental\Delegation\AppMessenger;
+use App\DesignPatterns\Fundamental\EventChannel\EventChannelJob;
 use App\DesignPatterns\Fundamental\PropertyContainer\BlogPost;
 use App\DesignPatterns\Fundamental\PropertyContainer\PropertyContainer;
 use Exception;
@@ -47,19 +48,35 @@ class PatternsController extends Controller
         $item = new AppMessenger();
 
         $item->setSender('sender@mail.ru')
-             ->setRecipient('recepient@mail.ru')
-             ->setMessage('Hello, email friend!')
-             ->send();
+            ->setRecipient('recepient@mail.ru')
+            ->setMessage('Hello, email friend!')
+            ->send();
 
         $item->toSms()
-             ->setSender('111111111')
-             ->setRecipient('222222222')
-             ->setMessage('Hello, sms friend')
-             ->send();
+            ->setSender('111111111')
+            ->setRecipient('222222222')
+            ->setMessage('Hello, sms friend')
+            ->send();
 
         \Debugbar::info($item);
 
         return view('patterns.delegation', compact('name', 'description'));
+    }
 
+    /**
+     * Демонстрация шаблона проектирования - "Канал событий (Event Channel)"
+     * @url http://127.0.0.1:8000/fundamentals/event-channel
+     *
+     * @return \Illuminate\View\View
+     */
+    public function EventChannel()
+    {
+        $name = 'Канал событий (event channel)';
+        $description = EventChannelJob::getDescription();
+
+        $item = new EventChannelJob();
+        $item->run();
+
+        return view('patterns.eventChannel', compact('name', 'description'));
     }
 }

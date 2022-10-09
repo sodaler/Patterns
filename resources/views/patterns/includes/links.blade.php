@@ -4,5 +4,6 @@
             Контейнер свойств
         </a>
         <a href="{{ route('delegation') }}" class="list-group-item list-group-item-action">Делегирование</a>
+        <a href="{{ route('eventChannel') }}" class="list-group-item list-group-item-action">Канал событий</a>
     </div>
 </div>
