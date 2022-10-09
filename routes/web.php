@@ -23,6 +23,8 @@ Route::get('/patterns/delegation', [\App\Http\Controllers\PatternsController::cl
 
 Route::get('/patterns/event-channel', [\App\Http\Controllers\PatternsController::class, 'eventChannel'])->name('eventChannel');
 
+Route::get('/patterns/interface-principle', [\App\Http\Controllers\PatternsController::class, 'interfacePrinciple'])->name('interfacePrinciple');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
