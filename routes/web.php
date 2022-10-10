@@ -27,6 +27,8 @@ Route::get('/patterns/interface-principle', [\App\Http\Controllers\PatternsContr
 
 Route::get('/patterns/factory-method', [\App\Http\Controllers\PatternsController::class, 'factoryMethod'])->name('factoryMethod');
 
+Route::get('/patterns/abstract-factory', [\App\Http\Controllers\PatternsController::class, 'abstractFactory'])->name('abstractFactory');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

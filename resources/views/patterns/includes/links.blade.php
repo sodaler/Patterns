@@ -11,5 +11,6 @@
     <p class="bg-light p-2 border-top border-bottom border mt-3">Порождающие шаблоны:</p>
     <div class="list-group">
         <a href="{{ route('factoryMethod') }}" class="list-group-item list-group-item-action">Фабричный метод</a>
+        <a href="{{ route('abstractFactory') }}" class="list-group-item list-group-item-action">Абстрактная фабрика</a>
     </div>
 </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DesignPatterns\Creational\AbstractFactory\ConcreteFactories\PHPTemplateFactory;
+use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\FactoryMethod\ClientCode;
 use App\DesignPatterns\Creational\FactoryMethod\FacebookPoster;
 use App\DesignPatterns\Creational\FactoryMethod\LinkedInPoster;
@@ -131,5 +133,28 @@ class PatternsController extends Controller
         $client->clientCode(new LinkedInPoster("Vasiliy@mail.ru", "123456"));
 
         return view('patterns.creational.factoryMethod', compact('name', 'description'));
+    }
+
+    /**
+     * Порождающий шаблон проектирования Абстрактная фабрика
+     *
+     * @url http://127.0.0.1:8000/fundamentals/abstract-factory
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
+     */
+    public function AbstractFactory()
+    {
+        $name = 'Абстрактная фабрика (Abstract Factory)';
+        $description = Page::getDescription();
+
+        /**
+         * Теперь в других частях приложения клиентский код может принимать фабричные
+         * объекты любого типа.
+         */
+        $page = new Page('Sample page', 'This is the body.');
+        \Debugbar::info("Testing actual rendering with the PHPTemplate factory:\n");
+        \Debugbar::info($page->render(new PHPTemplateFactory()));
+
+        return view('patterns.creational.abstractFactory', compact('name', 'description'));
     }
 }
