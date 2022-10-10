@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DesignPatterns\Creational\FactoryMethod\ClientCode;
+use App\DesignPatterns\Creational\FactoryMethod\FacebookPoster;
+use App\DesignPatterns\Creational\FactoryMethod\LinkedInPoster;
 use App\DesignPatterns\Fundamental\Delegation\AppMessenger;
 use App\DesignPatterns\Fundamental\EventChannel\EventChannelJob;
 use App\DesignPatterns\Fundamental\PropertyContainer\BlogPost;
@@ -109,5 +112,24 @@ class PatternsController extends Controller
         Шаблон компоновщик и Шаблон мост. Также не путать шаблон интерфейс и интерфейс - это разные вещи.';
 
         return view('patterns.interfacePrinciple', compact('name', 'description'));
+    }
+
+    /**
+     * Порождающий шаблон проектирования Фабричный Метод
+     *
+     * @url http://127.0.0.1:8000/fundamentals/factory-method
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
+     */
+    public function FactoryMethod()
+    {
+        $name = 'Фабричный метод (Factory method)';
+        $description = ClientCode::getDescription();
+
+        $client = new ClientCode();
+        $client->clientCode(new FacebookPoster("Vasya_Pupkin", "1234567"));
+        $client->clientCode(new LinkedInPoster("Vasiliy@mail.ru", "123456"));
+
+        return view('patterns.creational.factoryMethod', compact('name', 'description'));
     }
 }

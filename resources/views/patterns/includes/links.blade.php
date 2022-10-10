@@ -8,4 +8,8 @@
         <a href="{{ route('eventChannel') }}" class="list-group-item list-group-item-action">Канал событий</a>
         <a href="{{ route('interfacePrinciple') }}" class="list-group-item list-group-item-action">Интерфейс</a>
     </div>
+    <p class="bg-light p-2 border-top border-bottom border mt-3">Порождающие шаблоны:</p>
+    <div class="list-group">
+        <a href="{{ route('factoryMethod') }}" class="list-group-item list-group-item-action">Фабричный метод</a>
+    </div>
 </div>
